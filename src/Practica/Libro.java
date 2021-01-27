@@ -1,10 +1,14 @@
-package Ejercitacion;
+package Practica;
 
 public class Libro {
     private String titulo;
     private String isbn;
     private String autor;
     private boolean prestado;
+
+    // region constructores
+    public Libro() {
+    }
 
     public Libro(String titulo, String isbn, String autor, boolean prestado) {
         this.titulo = titulo;
@@ -13,16 +17,13 @@ public class Libro {
         this.prestado = prestado;
     }
 
-    public boolean isPrestado() {
-        return prestado;
-    }
+    // endregion
+
+    // region getters & setters
+    public Boolean getPrestado(){ return prestado; }
 
     public void setPrestado(boolean prestado) {
         this.prestado = prestado;
-    }
-
-    public Libro() {
-
     }
 
     public String getTitulo() {
@@ -49,8 +50,15 @@ public class Libro {
         this.autor = autor;
     }
 
+    // endregion
+
+
     public void prestamo(){
-        this.setPrestado(true);
+        if (prestado == false) {
+            this.setPrestado(true);
+        }else {
+            System.out.println("El libro se encuentra prestado");
+        }
     }
 
     public void devolucion(){
@@ -58,8 +66,8 @@ public class Libro {
     }
 
     @Override
-    public String toString() { // si  le cambiamos el nombre no puede overridearlo porque no existe
-        return "Libro" +
+    public String toString() { // si se le cambia el nombre por "tostring()"
+        return "Libro" +        //no puede sobreescribir el metodo porque no existe
                 "titulo='" + titulo + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", autor='" + autor;

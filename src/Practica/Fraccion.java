@@ -1,13 +1,14 @@
-package Ejercitacion;
+package Practica;
 
 public class Fraccion {
     private int numerador;
     private int denominador;
 
-    public Fraccion(){
+    public Fraccion(){ }
 
-    }
+    public double fraccionario(){ return this.getNumerador()/(double)this.getDenominador(); }
 
+    // region geters & setters
     public int getNumerador() {
         return numerador;
     }
@@ -24,91 +25,86 @@ public class Fraccion {
         this.denominador = denominador;
     }
 
-    public double resultado(){
-        return this.getNumerador()/(double)this.getDenominador();
-    }
+    // endregion
 
+    // region public functions
+    // region suma
     public static double sumar(int a, int b){
         return a+b;
     }
 
     public static double sumar(Fraccion f, int b){
-        return f.resultado()+b;
+        return f.fraccionario()+b;
     }
 
     public static double sumar(int a, Fraccion f){
-        return a+f.resultado();
+        return a+f.fraccionario();
     }
 
     public static double sumar(Fraccion f1, Fraccion f2){
-        return f1.resultado()+ f2.resultado();
+        return f1.fraccionario()+ f2.fraccionario();
     }
 
-/*    public double sumar(double a){ // creo que esto no va
-        return a + this.getValor();
-    }*/
+    // endregion
 
+    // region resta
     public static double restar(int a, int b){
         return a-b;
     }
 
     public static double restar(Fraccion f, int b){
-        return f.resultado()-b;
+        return f.fraccionario()-b;
     }
 
     public static double restar(int a, Fraccion f){
-        return a-f.resultado();
+        return a-f.fraccionario();
     }
 
     public static double restar(Fraccion f1, Fraccion f2){
-        return f1.resultado()- f2.resultado();
+        return f1.fraccionario()- f2.fraccionario();
     }
 
-/*    public double restar(double a){ // creo que esto no va
-        return a - this.getValor();
-    }*/
+    // endregion
 
+    // region division
     public static double dividir(int a, int b){
         return a/(double)b;
     }
 
     public static double dividir(Fraccion f, int b){
-        return f.resultado()/b;
+        return f.fraccionario()/b;
     }
 
     public static double dividir(int a, Fraccion f){
-        return a/f.resultado();
+        return a/f.fraccionario();
     }
 
     public static double dividir(Fraccion f1, Fraccion f2){
-        return f1.resultado()/f2.resultado();
+        return f1.fraccionario()/f2.fraccionario();
     }
 
-/*
-    public double dividir(double a){ // creo que esto no va
-        return a / this.getValor();
-    }
-*/
+    //endregion
 
+    //region multiplicacion
     public static double multiplicar(int a, int b){
         return a*b;
     }
 
     public static double multiplicar(Fraccion f, int b){
-        return f.resultado()*b;
+        return f.fraccionario()*b;
     }
 
     public static double multiplicar(int a, Fraccion f){
-        return a*f.resultado();
+        return a*f.fraccionario();
     }
 
     public static double multiplicar(Fraccion f1, Fraccion f2){
-        return f1.resultado()*f2.resultado();
+        return f1.fraccionario()*f2.fraccionario();
     }
+    //endregion
 
-/*    public double multiplicar(double a){ // creo que esto no va
-        return a * this.getValor();
-    }*/
+    //endregion
+
 
     public static void main(String[] args) {
         Fraccion f1 = new Fraccion();
