@@ -1,22 +1,30 @@
 package Practica;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TreeMap;
 
 public class Fecha {
     private int year;
     private int month;
     private int day;
-
+    private GregorianCalendar gc = new GregorianCalendar();
+    // region constructores
     public Fecha(int year, int month, int day) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
+        setYear(year);
+        setMonth(month);
+        setDay(day);
+        if(fechaCorrecta()){
+            this.gc.set(getYear(), getMonth(), getDay());
+        }else {
+            System.out.println("fecha invalida");
+        }
     }
 
-    public Fecha() {
-    }
+   // endregion
 
+    // region getters & setters
     public int getYear() {
         return year;
     }
@@ -41,17 +49,32 @@ public class Fecha {
         this.day = day;
     }
 
+    public GregorianCalendar getGc() {
+        return gc;
+    }
+
+    // endregion
+
+    public boolean fechaCorrecta(){
+        boolean esCorrecta = true;
+
+        if (this.month<1 || this.month>12){
+            esCorrecta = false;
+        }
+        if (this.day<1 || this.day>31){
+            esCorrecta = false;
+        }
+        if (this.day>28 && this.month == 2){
+            esCorrecta = false;
+        }
+
+        return esCorrecta;
+    }
     public void plusOneDay() {
-        Date d = new Date();
-        d.setDate(this.getDay());
-        d.setMonth(this.getMonth());
-        d.setYear(this.getYear());
-//        LocalDateTime.from(d.toInstant()).plusDays(1);
-        GregorianCalendar gd = new GregorianCalendar();
-        gd.setGregorianChange(d);
-        gd.add(GregorianCalendar.DATE,1);
-        System.out.println(d);
-        //falta terminaaar!
+        if(fechaCorrecta()){
+            gc.add(Calendar.DAY_OF_MONTH, 1);
+            setDay(this.day +1);
+        }
     }
 
     @Override
@@ -62,7 +85,10 @@ public class Fecha {
     }
 
     public static void main(String[] args) {
-        Date d = new Date();
-        System.out.println(d);
+
+        Fecha fecha = new Fecha(2021,13,34);
+        fecha.getGc();
+        fecha.plusOneDay();
+        fecha.getDay();
     }
 }
