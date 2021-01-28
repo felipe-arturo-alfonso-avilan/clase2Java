@@ -1,4 +1,4 @@
-package Practica;
+package PracticaMañana;
 
 public class Contador {
     private int valor;

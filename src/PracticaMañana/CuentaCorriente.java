@@ -1,4 +1,4 @@
-package Practica;
+package PracticaMañana;
 
 public class CuentaCorriente {
     private int numeroCuenta;

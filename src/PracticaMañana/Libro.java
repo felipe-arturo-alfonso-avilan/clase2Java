@@ -1,4 +1,4 @@
-package Practica;
+package PracticaMañana;
 
 public class Libro {
     private String titulo;
